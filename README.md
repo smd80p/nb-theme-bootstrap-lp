@@ -1,4 +1,4 @@
-#Local Nationbuilder Bootstrap Styling
+# Local Nationbuilder Bootstrap Styling
 
 ## Overview
 
@@ -10,15 +10,13 @@ This repo includes the default Bootstrap custom theme downloaded from Nationbuil
 
 ## Quick Start Guide
 
-###Nationbuilder Environment
+### Nationbuilder Environment
 
-Skip this if someone else has already has done this.
-
-Otherwise, update theme.html to include either
+Skip this if someone else has already has done this, otherwise update theme.html to include either
 ```
 <script type="text/javascript" src="http://localhost:8080/development-code.js"></script>
 ```
-or for a version that you can run in production that check for a localStorage property before loading
+or 
 ```
 <script type="text/javascript">
   if(typeof(localStorage !== 'undefined')){
@@ -33,36 +31,34 @@ or for a version that you can run in production that check for a localStorage pr
   }
  </script>
 ```
+This version can be used in production, at the expense of running a little more code than necessary.  
+<a name="localStorageKey"/>
+For this option you'll need to set a localStorage key when developing to point to your local development environment.  Something similar to 
+```
+localStorage.setItem("development-code-url", "http://localhost:36291/development-code.js")
+```
 
-###Local Development Environment
+### Local Development Environment
 
-####Clone the repository
+#### Clone the repository
 ```
 git clone https://github.com/smd80p/nb-theme-bootstrap-lp
 cd nb-theme-bootstrap-lp
 npm install # Local dependencies if you want to hack
 ```
-
-####Start the dev server
+#### Start the dev server
 ```
 npm run dev
 ```
-
-####Navigate to your nationbuilder live site
-
-If you're using the production localStorage option add a local storage key pointing to your local storage:
-
-```
-localStorage.setItem("development-code-url", "http://localhost:36291/development-code.js")
-```
-
-####Develop the theme style
+#### Develop the theme style
 
 Edit files under `src` and the browser should reflect your changes automatically
 
-####Debugging
+#### Debugging
 
-If the webpage doesn't automatically update, check whether the websocket connection to your local server succeeded in the console.
+Check localStorage for the website, in case you need to set a [local storage key](#localStorageKey)
+
+If the webpage doesn't automatically update, check whether the websocket connection to your local server succeeded in the console.  
 
 If local compilation is failing, check the errors in the local console.  If src includes the theme downloaded directly from Nationbuilder it's possible the compilcation may fail due to missing 'framework_countdown2', comment that dependency out to enable local compilation.
 
