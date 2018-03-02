@@ -6,11 +6,13 @@
   "scripts": {
     "dev-server": "live-server",
     "watch": "node-sass --watch src/theme.scss theme.css",
-    "build": "node-sass src/theme.scss theme.css"
+    "build": "node-sass src/theme.scss theme.css",
+    "dev": "concurrently --kill-others \"npm run watch\" \"npm run dev-server\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^3.5.1",
     "live-server": "^1.2.0",
     "node-sass": "^4.7.2"
   }
