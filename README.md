@@ -44,7 +44,7 @@ localStorage.setItem("development-code-url", "http://localhost:36291/development
 ```
 git clone https://github.com/smd80p/nb-theme-bootstrap-lp
 cd nb-theme-bootstrap-lp
-npm install # Local dependencies if you want to hack
+npm install 
 ```
 #### Start the dev server
 ```
