@@ -32,7 +32,7 @@ or
  </script>
 ```
 This version can be used in production, at the expense of running a little more code than necessary.  
-<a name="localStorageKey"/>
+<a name="local-storage-key"/>
 For this option you'll need to set a localStorage key when developing to point to your local development environment.  Something similar to 
 ```
 localStorage.setItem("development-code-url", "http://localhost:36291/development-code.js")
@@ -56,7 +56,7 @@ Edit files under `src` and the browser should reflect your changes automatically
 
 #### Debugging
 
-Check localStorage for the website, in case you need to set a [local storage key](#localStorageKey)
+Check localStorage for the website, in case you need to set a [local storage key](#local-storage-key)
 
 If the webpage doesn't automatically update, check whether the websocket connection to your local server succeeded in the console.  
 
