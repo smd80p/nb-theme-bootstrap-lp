@@ -1,9 +1,5 @@
 {% include "breadcrumbs" %}
 
-{% if page.headline.size > 0 %}
-<h2 class="headline">{{ page.headline }}</h2>
-{% endif %}
-
 <div id="content">
 
   <div id="intro" class="intro">
@@ -22,10 +18,6 @@
     {% tag "homepage" with "homepage_widget" %}
   {% endif %}
 
-  <div class="like-page">
-    <strong>Do you like this page?</strong>
-    {% include "like_page" %}
-  </div>
 
   {% if page.show_stream? %}
   {% include "page_stream" %}

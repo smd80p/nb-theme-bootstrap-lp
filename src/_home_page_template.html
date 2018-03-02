@@ -1,0 +1,45 @@
+{% include "breadcrumbs" %}
+
+<div id="content">
+
+  <div id="intro" class="intro">
+    <div class="text-content">
+      {{ page.basic.content }}
+    </div>
+  </div>
+  
+   <div class="section">
+      <div class="section-heading">
+     		<h2>Issues</h2>
+      <div class="section-content">
+  			{% subpage "issues" with "blog_latest_no_pagination" %}
+     		<div class="read-more"><a class="link-arrow" href="/news">More Local Issues</a></div>
+     	</div>
+     	</div>
+  </div>
+  
+   <div class="section">
+     <div class="section-heading">
+  		 <h2>News</h2>
+     </div>
+  	{% subpage "news" with "blog_latest_no_pagination" %}
+    <div class="read-more"><a class="link-arrow" href="/news">More Local News</a></div>
+  </div>
+ 
+
+  {% if page.tags_count > 0 %}
+  <div class="page-tags">
+    {% include "page_tags" with page %}
+  </div>
+  {% endif %}
+
+  {% if page.is_homepage? == true and site.page_tags contains "homepage" %}
+    {% tag "homepage" with "homepage_widget" %}
+  {% endif %}
+
+
+  {% if page.show_stream? %}
+  {% include "page_stream" %}
+  {% endif %}
+
+</div>

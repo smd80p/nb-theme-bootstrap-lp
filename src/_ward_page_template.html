@@ -1,0 +1,44 @@
+
+<div id="content">
+  	
+ {% for child in page.children limit:10 offset:0 %}
+ {% if child.headline == 'About Us' %}
+  <div class="subpage-excerpts">
+    <h2>{{ child.headline }}</h2>
+    <div class="excerpt">
+      {{ child.excerpt }}
+      
+      <div class="read-more"><a class="link-arrow" href="{{ child.url }}">More details</a></div>
+    </div>
+  </div>
+  
+  <hr>
+ {% endif %}
+ {% endfor %}
+  
+  
+  
+  <div class="subpage-excerpts">
+  <h2>Local News</h2>
+  <div class="excerpt">
+  {% subpage "news" with "blog_latest_no_pagination" %}
+    
+    <div class="read-more"><a class="link-arrow" href="/news">More Local News</a></div>
+    
+  </div>
+  
+  
+   {% for child in page.children limit:10 offset:0 %}
+ {% if child.headline == 'Contact Us' %}
+    <hr>
+  <div class="subpage-excerpts">
+    <h2>{{ child.headline }}</h2>
+    <div class="excerpt">
+      {{ child.excerpt }}
+      
+      <div class="read-more"><a class="link-arrow" href="{{ child.url }}">Contact Details</a></div>
+    </div>
+  </div>
+ {% endif %}
+ {% endfor %}
+</div>

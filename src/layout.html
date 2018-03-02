@@ -4,35 +4,43 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page_title }}</title>
+    <title>{{ page_title }} Title</title>
 
     <!-- Bootstrap -->
-    <link href="theme.scss" rel="stylesheet">
+    <link href="theme.scss" rel="stylesheet">  
+    
+    
 
     {{ content_for_header }}
 
     <script type="text/javascript">
       NB.appConfig.userIsLoggedIn = {{request.logged_in?}};
     </script>
+
+    <link href="style_adjustments.css" rel="stylesheet">
+    
+    {% include "development_headers" %}
+   
   </head>
   <body class="aware-theme v2-theme {{ page.page_class_name }} page-{{ request.template | replace: '_', '-' }} js">
 
+    
+    
     {% include "nav" %}
 
-
+    
     {% unless page.type_name == "Donation (v2)" %}
-    {% if site.has_header_image? and page.features_count == 0 %}
-    <div class="container header-image-container">
+    {% if site.has_header_image? and page.features_count == 0 %}    
      <img src="{{ site.header_image_url_1026 }}" class="header-image img-responsive" border="0" />
-    </div>
     {% endif %}
     {% endunless %}
-
+    
     {% if page.features_count > 0 %}
-      <div class="container">
+      <div class="container-static">
        {% include "features" %}
       </div>
     {% endif %}
+    
 
     <div class="main-container" id="middle">
       <div class="main container clearfix {% if site.has_background_image? %}well well-lg{% endif %}">
@@ -48,42 +56,68 @@
     </div>
     <!-- .main-container -->
 
-    <footer>
-      <div class="container {% if site.has_background_image? %}well well-lg{% endif %}">
+   
+      
+  
+      
+    
+     <footer>
+       
+       <div class="profile-strip orange">
+    <div class="container">
+      <h4>Help  campaign </h4>
 
-        {{ content_for_footer }}
+      <p>Get involved to help with your local Labour party.</p>
+      <p><a href="http://www.labour.org.uk/volunteering" class="btn">Volunteer with Labour</a></p>
+
+      <p><a href="https://donate.labour.org.uk/westminster_north/1" class="btn">Donate to the Westminster North campaign</a>
+      </p>
+    </div>
+  </div>
+       
+       <div class="profile-strip labour-red">
+    <div class="container">
+      <h4>Join the Labour Party</h4>
+      <p>We're a people-powered movement.<br>Be a part of it.</p>
+      <p><a href="https://join.labour.org.uk/" class="btn">Join Labour today</a></p>
+    </div>
+  </div>
+       
+     
+   <div class="profile-strip labour-footer">
+     
+      {{ content_for_footer }}
 
         {% if site.footer_content.size > 0 %}
         <div class="footer-text">{{ site.footer_content }}</div>
         <hr/>
         {% endif %}
-
-        <div class="row">
-
-          <div class="col-md-6 footer-left">
-            {% if request.logged_in? %}
-              Hi <a href="{{ request.current_signup.settings_url }}">{{ request.current_signup.name_or_email }}</a>. View your
-              {% if site.show_public_profiles? %}
-                <a href="{{ request.current_signup.profile_url }}">public profile</a>,
-              {% endif %}
-              <a href="{{ request.current_signup.settings_url }}">account settings</a>, or
-              <a href="{{ request.current_signup.logout_url }}">sign out</a>.
-            {% else %}
-              Sign in with <a href="{{ request.facebook_connect_url }}">Facebook</a>, <a
-                  href="{{ request.twitter_connect_url }}">Twitter</a> or <a href="/login">email</a>.
-            {% endif %}
-          </div>
-          <div class="col-md-6 footer-right text-right">
-            <!-- The NationBuilder link below is required. If it is removed, we may add it back ourselves.
+     
+        <div class="container">
+      <div class="text">
+        <img alt="The Labour Party" src="{{ site.meta_image_url }}">
+        <p>
+          Copyright Labour All rights reserved.<br>
+          <!-- The NationBuilder link below is required. If it is removed, we may add it back ourselves.
                  You can style it or move it in different ways, but please leave it in the footer. -->
             Created with <a href="http://nationbuilder.com/">NationBuilder</a>
-          </div>
-
-        </div>
+          Promoted by Westminster North Labour Party on behalf of its candidates <br/>
+          and  elected representatives, 4(G) Shirland Mews, London W9 3DY.
+        </p>
       </div>
-      <!-- container -->
-    </footer>
-
+      <ul class="links">
+        <li><a href="https://join.labour.org.uk/">Join</a></li>
+        <li><a href="https://donate.labour.org.uk/westminster_north/1">Donate</a></li>
+        <li><a href="http://www.labour.org.uk/volunteering">Volunteer</a></li>
+        <li><a href="http://www.labour.org.uk/pages/cookie-policy">Privacy Policy</a></li>
+      </ul>
+    </div>
+       
+       </div>
+       
+       
+   
+   
     {% if site.has_background_image? %}
       <!--[if lt IE 9]>
       <script type="text/javascript" src="/javascripts/jquery.backstretch.min.js"></script>
