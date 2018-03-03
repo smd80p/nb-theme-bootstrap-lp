@@ -5,8 +5,8 @@
   "main": "affix.js",
   "scripts": {
     "dev-server": "live-server --port=36291 --no-browser",
-    "watch": "node-sass --watch src/theme.scss theme.css",
-    "build": "node-sass src/theme.scss theme.css",
+    "watch": "node-sass --source-map-root file://${PWD}/ --source-map-embed true --watch src/theme.scss theme.css",
+    "build": "node-sass --source-map-root file://${PWD}/ --source-map-embed true src/theme.scss theme.css",
     "dev": "concurrently --kill-others \"npm run watch\" \"npm run dev-server\""
   },
   "author": "",
