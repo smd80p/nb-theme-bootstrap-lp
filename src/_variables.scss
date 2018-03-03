@@ -24,6 +24,25 @@ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
 $labour-red: #e4003b;
 $labour-green: #11ad8e;
+
+$labour-dark-blue: #12516f;
+$labour-magenta: #7c1b58;
+$labour-pink: #e33b7f;
+$labour-teal-blue: #2687a7;
+$labour-light-blue: #33bfd4;
+$labour-cream: #e7decd;
+
+$labour-grey-bg: #f9f7f1;
+
+$labour-topnav: $labour-red;
+
+.navbar {
+ /* -webkit-box-shadow: 0 4px 6px 0px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: 0 4px 6px 0px rgba(0, 0, 0, 0.53);
+  box-shadow: 0 4px 6px 0px rgba(0, 0, 0, 0.56);
+  z-index: 999;*/
+}
+
 $brand-primary:         $labour-red !default;
 $brand-success:         #5cb85c !default;
 $brand-info:            #5bc0de !default;
@@ -38,7 +57,7 @@ $brand-danger:          #d9534f !default;
 //## Settings for some of the most global styles.
 
 // Background color for `<body>`.
-$body-bg:               #fff !default;
+$body-bg:               $labour-grey-bg !default;
 // Global text color on `<body>`.
 $text-color:            $gray-dark !default;
 
@@ -118,9 +137,9 @@ $padding-xs-horizontal:     5px !default;
 $line-height-large:         1.33 !default;
 $line-height-small:         1.5 !default;
 
-$border-radius-base:        4px !default;
-$border-radius-large:       6px !default;
-$border-radius-small:       3px !default;
+$border-radius-base:        0px !default;
+$border-radius-large:       4px !default;
+$border-radius-small:       2px !default;
 
 // Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    #fff !default;
@@ -912,7 +931,7 @@ $hr-border:                   $gray-lighter !default;
   //=== Inverted navbar
   // Reset inverted navbar basics
   $navbar-inverse-color:                      white;
-  $navbar-inverse-bg:                         $brand-primary;
+  $navbar-inverse-bg:                         $labour-topnav;
   $navbar-inverse-border:                     $navbar-inverse-bg;
 
   // Inverted navbar links
@@ -940,18 +959,17 @@ $navbar-margin-bottom: 0px;
 
 
 
+  .features-container {
+    //margin-top: $navbar-height;
+  }
 
+
+
+  $carousel-border-width: 20px;
+  $carousel-border-colour: $brand-primary  ;
 
   .carousel {
-    border-top-width: 0px;
-    border-top-style: solid;
-    border-right-width: 20px;
-    border-right-style: solid;
-    border-left-width: 20px;
-    border-left-style: solid;
-    border-bottom-width: 20px;
-    border-bottom-style: solid;
-    border-color: $brand-primary;
+    margin: 0 auto;
   }
 
   .carousel-caption {
@@ -988,6 +1006,10 @@ $navbar-margin-bottom: 0px;
   }
 
 @media only screen and (min-width : 0px) {
+
+    .carousel {
+      border: 0 solid $carousel-border-colour;
+    }
     .carousel-caption h1 {
       font-size: $font-size-h4;
       line-height: 2;
@@ -999,8 +1021,13 @@ $navbar-margin-bottom: 0px;
    
   }
 
+
   /* Extra Small Devices, Phones */
   @media only screen and (min-width : 480px) {
+    .carousel {
+      border: $carousel-border-width/2 solid $carousel-border-colour;
+      border-top: 0px;
+    }
     .carousel-caption h1 {
       font-size: $font-size-h2;
       line-height: 1.8;
@@ -1013,6 +1040,11 @@ $navbar-margin-bottom: 0px;
 
   /* Small Devices, Tablets */
   @media only screen and (min-width : 768px) {
+    .carousel {
+      border: $carousel-border-width solid $carousel-border-colour;
+      border-top: 0;
+    }
+
     .carousel-caption h1 {
       font-size: $font-size-h1;
       line-height: 1.6;
@@ -1184,8 +1216,245 @@ $navbar-margin-bottom: 0px;
 
 
 
-
-
-
 //Labour Subnav Styling
-@import "labour-org-subnav";
+
+.sub-nav nav ul li a:after {
+  content: ''
+}
+
+.sub-nav {
+  float: none;
+  width: 100%;
+  padding: 0 20px
+}
+
+@media (min-width:992px) {
+  .sub-nav {
+    padding: 0 40px
+  }
+}
+
+.sub-nav .container {
+  padding: 0
+}
+
+.sub-nav .social {
+  margin: 0;
+  float: right;
+  display: none;
+  height: 70px;
+  background: #eee;
+  padding: 21px 30px
+}
+
+@media (min-width:992px) {
+  .sub-nav .social {
+    display: block
+  }
+}
+
+.sub-nav .social span {
+  margin: 4px 10px 0;
+  color: #666;
+  text-transform: none;
+  font-weight: 600;
+  font-size: 14px
+}
+
+.sub-nav .social ul li a {
+  padding: 0 8px;
+  color: #666;
+  text-decoration: none;
+}
+
+.sub-nav .social ul li a:hover {
+  color: $labour-green;
+  text-decoration: none;
+}
+
+
+.sub-nav .topper-menu {
+  width: 100%;
+  display: block;
+  overflow: hidden
+}
+
+@media (min-width:768px) {
+  .sub-nav .topper-menu {
+    display: table;
+    margin: 0 auto;
+    width: auto;
+    float: none
+  }
+}
+
+@media (min-width:992px) {
+  .sub-nav .topper-menu {
+    display: block;
+    width: 100%;
+    text-align: center
+  }
+}
+
+.sub-nav:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.sub-nav .topper-menu.news {
+  display: table;
+  margin: 0 auto;
+  width: auto;
+  float: none
+}
+
+.sub-nav nav {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  overflow: hidden
+}
+
+@media (min-width:768px) {
+  .sub-nav nav {
+    margin-top: 0;
+    margin-bottom: 22px
+  }
+}
+
+.sub-nav nav ul {
+  margin: 0;
+  padding: 0
+}
+
+.sub-nav nav ul li {
+  float: none;
+  width: 100%;
+  display: inline-block
+}
+
+.sub-nav nav ul li.current-menu-item a {
+  color: $labour-red
+}
+
+.sub-nav nav ul li .sub-menu {
+  display: none
+}
+
+.sub-nav nav ul li a {
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  text-align: center;
+  position: relative;
+  margin: 5px 10px;
+  padding: 5px;
+  color: $labour-red
+}
+
+@media (min-width:768px) {
+  .sub-nav nav ul li {
+    width: auto
+  }
+  .sub-nav nav ul li.current-menu-item a:after {
+    background: $labour-red;
+    opacity: 1
+  }
+  .sub-nav nav ul li a {
+    padding: 23px 0 10px;
+    margin: 0 20px
+  }
+}
+
+.sub-nav nav ul li a:after {
+  width: 40px;
+  height: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background: #282828;
+  opacity: 0;
+  -o-transition: .35s;
+  -ms-transition: .35s;
+  -moz-transition: .35s;
+  -webkit-transition: .35s;
+  transition: .35s
+}
+
+.sub-nav nav ul li a:hover {
+  color: $labour-green
+}
+
+.sub-nav nav ul li a:hover:after {
+  background: $labour-green;
+  width: 100%
+}
+
+
+
+.highlight-cards {
+
+  display: flex;
+  justify-content: space-between;
+
+
+  $card-border-thickness: 0px;
+
+  .card-block {
+    //border-top: 2px solid $brand-primary;
+  }
+
+  .card-dark-blue {
+    background: $labour-dark-blue;
+    border: $card-border-thickness solid $labour-dark-blue;
+    color: white;
+  }
+
+  .card-light-blue {
+    background: $labour-light-blue;
+    border: $card-border-thickness solid $labour-light-blue;
+    color: white;
+  }
+
+  .card-pink {
+    background: $labour-pink;
+    border: $card-border-thickness solid $labour-pink;
+    color: white;
+  }
+
+  .card-magenta {
+    background: $labour-magenta;
+    border: $card-border-thickness solid $labour-magenta;
+    color: white;
+  }
+
+  .card-teal-blue {
+    background: $labour-teal-blue;
+    border: $card-border-thickness solid $labour-teal-blue;
+    color: white;
+  }
+
+  .card {
+    font-weight: bold;
+    width: 33%;
+    font-size: $font-size-large;
+    //display: table-cell;
+    //border: 2px solid $brand-primary;
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
