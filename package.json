@@ -4,9 +4,9 @@
   "description": "",
   "main": "affix.js",
   "scripts": {
-    "dev-server": "live-server --port=36291 --no-browser",
-    "watch": "node-sass --source-map-root file://${PWD}/ --source-map-embed true --watch src/theme.scss theme.css",
-    "build": "node-sass --source-map-root file://${PWD}/ --source-map-embed true src/theme.scss theme.css",
+    "dev-server": "live-server  --port=36291 --no-browser www",
+    "watch": "node-sass --source-map-root file://${PWD}/ --source-map-embed true --watch src/theme.scss www/theme.css",
+    "build": "node-sass --source-map-root file://${PWD}/ --source-map-embed true src/theme.scss www/theme.css",
     "dev": "concurrently --kill-others \"npm run watch\" \"npm run dev-server\""
   },
   "author": "",
