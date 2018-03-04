@@ -899,13 +899,7 @@ $hr-border:                   $gray-lighter !default;
 
   $brand-primary:         #e4003b;
 
-  .navbar-brand > img {
-    margin-top: -4px;
-  }
 
-  a.navbar-brand {
-		height: 10px;
- }
 
   $navbar-default-bg:                $brand-primary;
   // Navbar links
@@ -930,17 +924,17 @@ $hr-border:                   $gray-lighter !default;
 
   //=== Inverted navbar
   // Reset inverted navbar basics
-  $navbar-inverse-color:                      white;
+  $navbar-inverse-color:                      rgba(#fcfcfc,0.95);
   $navbar-inverse-bg:                         $labour-topnav;
   $navbar-inverse-border:                     $navbar-inverse-bg;
 
   // Inverted navbar links
-  $navbar-inverse-link-color:                 white;
+  $navbar-inverse-link-color:                 $navbar-inverse-color;
   $navbar-inverse-link-hover-color:           white;
   $navbar-inverse-link-hover-bg:              transparent;
   $navbar-inverse-link-active-color:          $navbar-inverse-link-hover-color;
-  $navbar-inverse-link-active-bg:             darken($navbar-inverse-bg, 5%);
-  $navbar-inverse-link-disabled-color:        white;
+  $navbar-inverse-link-active-bg:             darken($navbar-inverse-bg, 3%);
+  $navbar-inverse-link-disabled-color:        darken($navbar-inverse-link-color, 40%);
   $navbar-inverse-link-disabled-bg:           transparent;
 
   // Inverted navbar brand label
@@ -950,13 +944,40 @@ $hr-border:                   $gray-lighter !default;
 
   // Inverted navbar toggle
   $navbar-inverse-toggle-hover-bg:            darken($navbar-default-bg, 10%);
-  $navbar-inverse-toggle-icon-bar-bg:         white;
-  $navbar-inverse-toggle-border-color:        white;
+  $navbar-inverse-toggle-icon-bar-bg:         $navbar-inverse-bg;
+  $navbar-inverse-toggle-border-color:        $navbar-inverse-link-color;
 
 $navbar-margin-bottom: 0px;
 
 
+  .navbar{
+    a {
+      font-weight: bold;
+    }
+  }
 
+.navbar-brand > img {
+  margin-top: -4px;
+}
+
+a.navbar-brand {
+  height: 10px;
+}
+
+.navbar {
+  .dropdown-menu {
+    background: $navbar-inverse-bg;
+    a {
+      background: $navbar-inverse-bg;
+      color: $navbar-inverse-link-color;
+    }
+
+    a:hover {
+      background: darken($navbar-inverse-bg, 5%);
+      color: $navbar-inverse-link-hover-color;
+    }
+  }
+}
 
 
   .features-container {
