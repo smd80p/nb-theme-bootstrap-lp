@@ -1,9 +1,4 @@
 /* Adjustments to styles.  This file contains overrides that go at the end of the header */
-
-.byline {
-  margin-bottom: 0.4em;
-}
-
-.section {
-   padding-bottom: 2em;
+.breadcrumb {
+    padding-top: 0;
 }
